@@ -5,8 +5,27 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-<link href="web-icons.css" rel="stylesheet" type="text/css" />
-<script src="web-icons.js"></script>
+<STYLE>
+	.share-url-image {
+		float:left;
+		position:relative;
+		cursor:pointer;
+	}
+	
+	.share-url-image-source {
+		z-index:100;
+		position:relative;
+	}
+	
+	a {
+		display: inline;
+	}
+	
+	#subdiv {
+		margin:100px;
+		border: solid black 1px;
+	}
+</STYLE>
 
 <script type="text/javascript">
 	
@@ -95,8 +114,8 @@
 		
 		$(webiconselector).mouseup(function(e) {
 			$(this).animate({
-				'left':'-' + halfclickwidth + 'px',
-				'top':'-' + halfclickheight + 'px',
+				'left':'0px',
+				'top':'0px',
 			}, 100);
 		});
 	});
