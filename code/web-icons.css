@@ -1,18 +1,19 @@
-	.share-url-image {
-		float:left;
-		position:relative;
-		cursor:pointer;
-	}
-	
-	.share-url-image-source {
-		z-index:100;
-		position:relative;
-	}
-	
-	a {
-		display: inline;
-	}
-	
-	#subdiv {
-		border: solid black 1px;
-	}
+.web-icons-image {
+	float:left;
+	position:relative;
+	cursor:pointer;
+}
+
+.web-icons-image-source {
+	z-index:100;
+	position:relative;
+}
+
+.web-icons-link {
+	display: inline;
+}
+
+#main-web-icons-div {
+	margin: 30px;
+	border: solid black 1px;
+}
