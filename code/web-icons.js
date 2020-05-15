@@ -1,32 +1,38 @@
-		// Globals
-		// ----------------------------------
-
-var webiconselector = '.share-url-image';
-
-var halfclickheight = 5;
-var halfclickwidth = 5;
-
-var clickheight = 10;
-var clickwidth = 10;
-
-var subheight = 50;
-var subwidth = 50;
-
-var defaultheight = 100;
-var defaultwidth = 100;
-
-var expandedheight = 200;
-var expandedwidth = 200;
-
-var animationduration = 200;
-
-var activeanimations = {};
-var activeanimation = false;
-
-		// Code
-		// ----------------------------------
-
 $(document).ready(function() {
+			// Globals
+			// ----------------------------------
+	
+	var webiconselector = '.web-icons-image-div';
+	
+	var configurableselector = $('#web-icons-image-div-selector');
+	
+	if($(configurableselector) && $(configurableselector).val()) {
+		webiconselector = $(configurableselector).val();
+	}
+	
+	var halfclickheight = 5;
+	var halfclickwidth = 5;
+	
+	var clickheight = 10;
+	var clickwidth = 10;
+	
+	var subheight = 50;
+	var subwidth = 50;
+
+	var defaultheight = 100;
+	var defaultwidth = 100;
+	
+	var expandedheight = 200;
+	var expandedwidth = 200;
+	
+	var animationduration = 200;
+	
+	var activeanimations = {};
+	var activeanimation = false;
+	
+			// Logic
+			// ----------------------------------
+	
 	$(webiconselector).prop('height', defaultheight);
 	$(webiconselector).prop('width', defaultwidth);
 	$(webiconselector).mouseover(function(e) {
@@ -83,8 +89,8 @@ $(document).ready(function() {
 	
 	$(webiconselector).mouseup(function(e) {
 		$(this).animate({
-			'left':'-' + halfclickwidth + 'px',
-			'top':'-' + halfclickheight + 'px',
+			'left':'0px',
+			'top':'0px',
 		}, 100);
 	});
 });
