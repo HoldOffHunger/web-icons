@@ -5,245 +5,133 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-<STYLE>
-	.share-url-image {
-		float:left;
-		position:relative;
-		cursor:pointer;
-	}
-	
-	.share-url-image-source {
-		z-index:100;
-		position:relative;
-	}
-	
-	a {
-		display: inline;
-	}
-	
-	#subdiv {
-		margin:100px;
-		border: solid black 1px;
-	}
-</STYLE>
-
-<script type="text/javascript">
-	
-			// Globals
-			// ----------------------------------
-	
-	var webiconselector = '.share-url-image';
-	
-	var halfclickheight = 5;
-	var halfclickwidth = 5;
-	
-	var clickheight = 10;
-	var clickwidth = 10;
-	
-	var subheight = 50;
-	var subwidth = 50;
-
-	var defaultheight = 100;
-	var defaultwidth = 100;
-	
-	var expandedheight = 200;
-	var expandedwidth = 200;
-	
-	var animationduration = 200;
-	
-	var activeanimations = {};
-	var activeanimation = false;
-	
-			// Code
-			// ----------------------------------
-
-	$(document).ready(function() {
-		$(webiconselector).prop('height', defaultheight);
-		$(webiconselector).prop('width', defaultwidth);
-		$(webiconselector).mouseover(function(e) {
-			if(activeanimation) {
-				return false;
-			}
-			if(activeanimations[$(this).attr('data-service')]) {
-				return false;
-			}
-			activeanimation = true;
-			activeanimations[$(this).attr('data-service')] = true;
-			$(this).height(defaultheight);
-			$(this).width(defaultwidth);
-			$(this).css('zIndex', 1000);
-			var that = this;
-			$(this).find('img').animate({
-				'height':expandedheight + 'px',
-				'width':expandedwidth + 'px',
-				'margin-top':'-' + subheight + 'px',
-				'margin-bottom':'-' + subheight + 'px',
-				'margin-left':'-' + subwidth + 'px',
-				'margin-right':'-' + subwidth + 'px',
-			}, animationduration, function() {
-				activeanimations[$(that).attr('data-service')] = false;
-			});
-			$(this).css({'transform': 'rotate(360deg)', 'transition-duration': '.5s'});
-			activeanimation = false;
-		});
-		
-		$(webiconselector).mouseout(function(e) {
-			$(this).height(defaultheight);
-			$(this).width(defaultwidth);
-			var that = this;
-			$(this).find('img').animate({
-				'height':defaultheight + 'px',
-				'width':defaultwidth + 'px',
-				'margin-top':'0px',
-				'margin-bottom':'0px',
-				'margin-left':'0px',
-				'margin-right':'0px',
-			}, animationduration, function() {
-				$(that).css('zIndex', 100);
-				activeanimations[$(that).attr('data-service')] = false;
-			});
-			$(this).css({'transform': 'rotate(0deg)', 'transition-duration': '0.1s'});
-		});
-		
-		$(webiconselector).mousedown(function(e) {
-			$(this).css({
-				'left':clickwidth + 'px',
-				'top':clickheight + 'px',
-			});
-		});
-		
-		$(webiconselector).mouseup(function(e) {
-			$(this).animate({
-				'left':'0px',
-				'top':'0px',
-			}, 100);
-		});
-	});
-	
-</script>
+<link href="./css/web-icons-styles.css" rel="stylesheet" type="text/css" />
+<script src="./javascript/web-icons.js"></script>
 
 </head>
 <body>
 
 <div id="maindiv">
 
-<div id="subdiv">
+<div id="main-web-icons-div">
 
-	<div class="share-url-image" data-service="addthis">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/add.this.png" width="100" height="100">
+	<div class="web-icons-image" data-service="addthis">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/add.this.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="baidu">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/baidu.png" width="100" height="100">
+	<div class="web-icons-image" data-service="baidu">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/baidu.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="blogger">
-		<a href="https://www.blogger.com/blog-this.g?u=http%3A%2F%2Fwww.revoltlib.com%2F&n=Revolt+Library+%3A+Revolutionary+Materials+from+the+Past&t=Want+to+know+how+they+fought+the+state+and+capitalism+in+the+past%3F++Look+no+further%21++All+the+answers+about+history%27s+anti-authoritarian+battles+can+be+found+here."><img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/blogger.png" width="100" height="100"></a>
+	<div class="web-icons-image" data-service="blogger">
+		<a class="web-icons-link" target="_blank" href="https://www.blogger.com/blog-this.g?u=http%3A%2F%2Fwww.revoltlib.com%2F&n=Revolt+Library+%3A+Revolutionary+Materials+from+the+Past&t=Want+to+know+how+they+fought+the+state+and+capitalism+in+the+past%3F++Look+no+further%21++All+the+answers+about+history%27s+anti-authoritarian+battles+can+be+found+here."><img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/blogger.png" width="100" height="100"></a>
 	</div>
-	<div class="share-url-image" data-service="diaspora">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/diaspora.png" width="100" height="100">
+	<div class="web-icons-image" data-service="diaspora">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/diaspora.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="douban">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/douban.png" width="100" height="100">
+	<div class="web-icons-image" data-service="douban">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/douban.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="email">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/email.png" width="100" height="100">
+	<div class="web-icons-image" data-service="email">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/email.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="evernote">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/evernote.png" width="100" height="100">
+	<div class="web-icons-image" data-service="evernote">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/evernote.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="facebook">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/facebook.png" width="100" height="100">
+	<div class="web-icons-image" data-service="facebook">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/facebook.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="flipboard">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/flipboard.png" width="100" height="100">
+	<div class="web-icons-image" data-service="flipboard">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/flipboard.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="getpocket">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/getpocket.png" width="100" height="100">
+	<div class="web-icons-image" data-service="getpocket">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/getpocket.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="gmail">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/gmail.png" width="100" height="100">
+	<div class="web-icons-image" data-service="gmail">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/gmail.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="googlebookmarks">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/google.bookmarks.png" width="100" height="100">
+	<div class="web-icons-image" data-service="googlebookmarks">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/google.bookmarks.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="hackernews">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/hacker.news.png" width="100" height="100">
+	<div class="web-icons-image" data-service="hackernews">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/hacker.news.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="instapaper">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/instapaper.png" width="100" height="100">
+	<div class="web-icons-image" data-service="instapaper">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/instapaper.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="lineme">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/line.me.png" width="100" height="100">
+	<div class="web-icons-image" data-service="lineme">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/line.me.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="linkedin">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/linkedin.png" width="100" height="100">
+	<div class="web-icons-image" data-service="linkedin">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/linkedin.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="livejournal">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/livejournal.png" width="100" height="100">
+	<div class="web-icons-image" data-service="livejournal">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/livejournal.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="okru">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/okru.png" width="100" height="100">
+	<div class="web-icons-image" data-service="okru">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/okru.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="pinterest">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/pinterest.png" width="100" height="100">
+	<div class="web-icons-image" data-service="pinterest">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/pinterest.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="qzone">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/qzone.png" width="100" height="100">
+	<div class="web-icons-image" data-service="qzone">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/qzone.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="reddit">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/reddit.png" width="100" height="100">
+	<div class="web-icons-image" data-service="reddit">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/reddit.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="renren">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/renren.png" width="100" height="100">
+	<div class="web-icons-image" data-service="renren">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/renren.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="skype">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/skype.png" width="100" height="100">
+	<div class="web-icons-image" data-service="skype">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/skype.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="sms">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/sms.png" width="100" height="100">
+	<div class="web-icons-image" data-service="sms">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/sms.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="stumbleupon">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/stumbleupon.png" width="100" height="100">
+	<div class="web-icons-image" data-service="stumbleupon">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/stumbleupon.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="surfingbird">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/surfingbird.ru.png" width="100" height="100">
+	<div class="web-icons-image" data-service="surfingbird">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/surfingbird.ru.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="telegramme">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/telegram.me.png" width="100" height="100">
+	<div class="web-icons-image" data-service="telegramme">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/telegram.me.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="threema">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/threema.png" width="100" height="100">
+	<div class="web-icons-image" data-service="threema">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/threema.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="tumblr">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/tumblr.png" width="100" height="100">
+	<div class="web-icons-image" data-service="tumblr">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/tumblr.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="twitter">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/twitter.png" width="100" height="100">
+	<div class="web-icons-image" data-service="twitter">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/twitter.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="viber">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/viber.png" width="100" height="100">
+	<div class="web-icons-image" data-service="viber">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/viber.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="vk">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/vk.png" width="100" height="100">
+	<div class="web-icons-image" data-service="vk">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/vk.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="weibo">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/weibo.png" width="100" height="100">
+	<div class="web-icons-image" data-service="weibo">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/weibo.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="whatsapp">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/whatsapp.png" width="100" height="100">
+	<div class="web-icons-image" data-service="whatsapp">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/whatsapp.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="wordpress">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/wordpress.png" width="100" height="100">
+	<div class="web-icons-image" data-service="wordpress">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/wordpress.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="xing">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/xing.png" width="100" height="100">
+	<div class="web-icons-image" data-service="xing">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/xing.png" width="100" height="100">
 	</div>
-	<div class="share-url-image" data-service="yahoo">
-		<img class="share-url-image-source" src="/image/social-media-logo-icons-opaque-background/yahoo.png" width="100" height="100">
+	<div class="web-icons-image" data-service="yahoo">
+		<img class="web-icons-image-source" src="/image/social-media-logo-icons-opaque-background/yahoo.png" width="100" height="100">
 	</div>
 
 	<div style="clear:both;"></div>
 
 </div>
+
+<input id="web-icons-image-div-selector" type="hidden" value=".web-icons-image" disabled="true" readonly="true" />
 
 </div>
 
