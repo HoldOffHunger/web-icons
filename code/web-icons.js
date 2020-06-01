@@ -3,27 +3,30 @@ $(document).ready(function() {
 			// ----------------------------------
 	
 	var webiconselector = '.web-icons-image-div';
+
+	var defaultheight = 50;
+	var defaultwidth = 50;
+	
+			// Sub-Globals
+			// ----------------------------------
 	
 	var configurableselector = $('#web-icons-image-div-selector');
 	
-	if($(configurableselector) && $(configurableselector).val()) {
-		webiconselector = $(configurableselector).val();
+	if($(configurableselector) && $(configurableselector).attr('data-webicons-selector')) {
+		webiconselector = $(configurableselector).attr('data-webicons-selector');
 	}
 	
-	var halfclickheight = 5;
-	var halfclickwidth = 5;
+	var halfclickheight = Math.floor(defaultheight/20);
+	var halfclickwidth = Math.floor(defaultwidth/20);
 	
-	var clickheight = 10;
-	var clickwidth = 10;
+	var clickheight = Math.floor(defaultheight/10);
+	var clickwidth = Math.floor(defaultwidth/10);
 	
-	var subheight = 50;
-	var subwidth = 50;
-
-	var defaultheight = 100;
-	var defaultwidth = 100;
+	var subheight = Math.floor(defaultheight/2);
+	var subwidth = Math.floor(defaultwidth/2);
 	
-	var expandedheight = 200;
-	var expandedwidth = 200;
+	var expandedheight = defaultheight * 2;
+	var expandedwidth = defaultwidth * 2;
 	
 	var animationduration = 200;
 	
@@ -33,8 +36,8 @@ $(document).ready(function() {
 			// Logic
 			// ----------------------------------
 	
-	$(webiconselector).prop('height', defaultheight);
-	$(webiconselector).prop('width', defaultwidth);
+	$(webiconselector).find('img').prop('height', defaultheight);
+	$(webiconselector).find('img').prop('width', defaultwidth);
 	$(webiconselector).mouseover(function(e) {
 		if(activeanimation) {
 			return false;
@@ -81,6 +84,10 @@ $(document).ready(function() {
 	});
 	
 	$(webiconselector).mousedown(function(e) {
+		console.log("BT: Mousedown go!" + clickwidth + "|");
+		
+		console.log("BT: This imG???");
+		console.log($(this).find('img'));
 		$(this).css({
 			'left':clickwidth + 'px',
 			'top':clickheight + 'px',
@@ -88,6 +95,7 @@ $(document).ready(function() {
 	});
 	
 	$(webiconselector).mouseup(function(e) {
+		console.log("BT: Mouseup go!" + clickwidth + "|");
 		$(this).animate({
 			'left':'0px',
 			'top':'0px',
